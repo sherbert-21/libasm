@@ -1,15 +1,19 @@
 segment .text
-    extern  ft_strlen
     extern  ft_strcpy
 
 ft_strcpy:
-    push    rdi
-    mov     rdi, rsi
-    call    ft_strlen
-    mov     rcx, rax
-    pop     rdi
-    cld
-    move    rax, rdi
-    rep     movsb
-    mov     BYTE [rdi], 0s
+    mov     rax, 0
+
+cpy:
+    mov     cl, BYTE [rsi + rax]
+    mov     byte [rdi + rax], cl
+    cmp     cl, 0
+    je      return
+    inc     rax
+    jmp     cpy
+
+return:
+    movsx   rax, cl
+    movsx   rdx, dl
+    mov     rax, rdi
     ret

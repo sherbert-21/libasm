@@ -6,12 +6,12 @@ segment .text
 
 ft_strdup:
     call    ft_strlen
-    add     rax, 1
+    inc     rax
     push    rdi
     mov     rdi, rax
     call    malloc
-    pop     r9
+    pop     rdi
+    mov     rsi, rdi
     mov     rdi, rax
-    mov     rsi, r9
     call    ft_strcpy
     ret
