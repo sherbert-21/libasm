@@ -21,7 +21,7 @@ clean:
 	rm -f $(OBJS)
 
 test: all
-	gcc -Wall -Wextra -Werror -I./libasm.h libasm.a main.c -o test
+	gcc -L. -lasm -Wall -Wextra -Werror -I ./libasm.h main.c -o test
 	./test
 
 fclean: clean

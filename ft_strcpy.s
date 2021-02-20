@@ -1,7 +1,9 @@
-segment .text
-    extern  ft_strcpy
 
-ft_strcpy:
+
+segment .text
+    extern  _ft_strcpy
+
+_ft_strcpy:
     mov     rax, 0
 
 cpy:
